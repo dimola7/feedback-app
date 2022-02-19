@@ -32,11 +32,6 @@ header {
   margin-bottom: 30px;
 }
 
-.card.reverse {
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
-}
-
 .card h2 {
   font-size: 22px;
   font-weight: 600;
@@ -109,12 +104,6 @@ input:focus {
   outline: none;
 }
 
-.feedback-stats {
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .num-display {
   position: absolute;

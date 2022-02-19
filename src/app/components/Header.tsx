@@ -17,11 +17,6 @@ const Header = ({text, bgColor, textColor}:Props) => {
   )
 }
 
-const HeaderDiv = styled.header`
-    
-
-`
-
 Header.defaultProps = {
     text: "Feedback UI",
     bgColor: "rgba(0,0,0,0.4)",
@@ -29,3 +24,8 @@ Header.defaultProps = {
 }
 
 export default Header
+
+
+const HeaderDiv = styled.header`
+        
+`

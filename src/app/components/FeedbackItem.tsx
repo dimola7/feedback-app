@@ -1,7 +1,21 @@
+import Card from "../ui/molecules/Card";
+import {FaTimes} from "react-icons/fa";
 
-const FeedbackItem = () => {
+interface Props {
+    item: any,
+    handleDelete: (id:any) => void;
+}
+
+const FeedbackItem = ({item, handleDelete}:Props) => {
+
   return (
-    <div>FeedbackItem</div>
+    <Card>
+        <div className="num-display">{item.rating}</div>
+        <button className="close" onClick={() => handleDelete(item.id)}>
+            <FaTimes color="purple" />
+        </button>
+        <div className="text-display">{item.text}</div>
+    </Card>
   )
 }
 
