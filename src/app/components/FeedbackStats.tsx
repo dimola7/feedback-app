@@ -1,18 +1,11 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import FeedbackContext from "../context/FeedbackContext";
 
-interface Props {
-    feedback: Array<Type>;
-}
-
-interface Type {
-    id: number;
-    rating: number;
-    text: string;
-}
-
-const FeedbackStats = ({feedback}:Props) => {
+const FeedbackStats = () => {
+  const {feedback} = useContext(FeedbackContext);
     // calculate ratings average 
-    let average = feedback.reduce((acc, cur) => {
+    let average = feedback.reduce((acc:any, cur:any) => {
        return acc + cur.rating
     }, 0) / feedback.length
 

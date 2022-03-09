@@ -1,17 +1,24 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, useEffect, useContext, ChangeEvent, FormEvent } from "react";
+import FeedbackContext from "../context/FeedbackContext";
 import RatingSelect from "./RatingSelect";
 import Card from "../ui/molecules/Card";
 import Button from "../ui/atoms/Button";
 
-interface Props {
-    handleAdd: (newFeedback:any) => void;
-}
-
-const FeedbackForm = ({handleAdd}: Props) => {
+const FeedbackForm = () => {
+  const {addFeedback, feedbackEdit, updateFeedback} = useContext(FeedbackContext);
   const [text, setText] = useState("");
   const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if(feedbackEdit.edit === true){
+        setBtnDisabled(false);
+        setText(feedbackEdit.item.text);
+        setRating(feedbackEdit.item.rating)
+    }
+  }, [feedbackEdit])
+  
 
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
       if(text === "") {
@@ -34,7 +41,11 @@ const FeedbackForm = ({handleAdd}: Props) => {
               text,
               rating
           };
-          handleAdd(newFeedback);
+          if(feedbackEdit.edit === true){
+              updateFeedback(feedbackEdit.item.id, newFeedback)
+          } else {
+              addFeedback(newFeedback);
+          }
           setText("");
       }
   }
