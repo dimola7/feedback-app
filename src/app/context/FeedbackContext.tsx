@@ -65,7 +65,7 @@ export const FeedbackProvider = ({children}:Props) => {
     }
 
     const updateFeedback = (id:number, updatedItem:any) => {
-        setFeedback(feedback.map((item) => (item.id !== id ? {...item, ...updatedItem} : item)))
+        setFeedback(feedback.map((item) => (item.id === id ? {...item, ...updatedItem} : item)))
     }
 
     return(
