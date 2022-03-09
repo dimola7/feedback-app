@@ -3,14 +3,15 @@ import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import FeedbackItem from "./FeedbackItem";
 import FeedbackContext from "../context/FeedbackContext";
+import Loader from "./Loader";
 
 const FeedbackList = () => {
-    const {feedback} = useContext(FeedbackContext);
+    const {feedback, isLoading} = useContext(FeedbackContext);
 
-    if(!feedback || feedback.length === 0) {
+    if(!isLoading && (!feedback || feedback.length === 0)) {
         return <p>No feedback yet</p>
     }
-  return (
+  return isLoading ? <Loader /> : (
     <FeedbackDiv>
         <AnimatePresence>
             {feedback.map((item:any) => (
