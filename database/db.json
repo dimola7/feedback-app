@@ -1,12 +1,12 @@
 {
   "feedback": [
     {
-      "text": "just changed",
-      "rating": "6",
+      "text": "Its not so bad",
+      "rating": 6,
       "id": 1
     },
     {
-      "text": "First updated",
+      "text": "First update",
       "rating": 7,
       "id": 3
     },

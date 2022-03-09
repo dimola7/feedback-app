@@ -14,10 +14,10 @@ const FeedbackItem = ({item}:Props) => {
     <Card>
         <div className="num-display">{item.rating}</div>
         <button className="close" onClick={() => deleteFeedback(item.id)}>
-            <FaTimes color="purple" />
+            <FaTimes color="#1e3799" />
         </button>
         <button className="edit" onClick={() => editFeedback(item)}>
-          <FaEdit color="purple"/>
+          <FaEdit color="#1e3799"/>
         </button>
         <div className="text-display">{item.text}</div>
     </Card>
